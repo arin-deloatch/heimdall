@@ -1,0 +1,27 @@
+# Registry of repositories to manage
+
+# Local repos — identified by directory name under ~/Desktop/Projects
+repos:
+  # MCP Servers
+  - okp-mcp
+  - linux-mcp-server
+  - mcp-testing
+
+  # Evaluation & Testing
+  - lightspeed-evaluation
+  - lightspeed-spike
+  - rls-unified-test-suite
+
+  # Content & Processing
+  - codex
+  - cerberus
+
+  # Tools & Utilities
+  - quality-enforcer-mcp
+
+# GitHub repos — used when QUALITY_MCP_USE_GITHUB=true
+# Format: owner/repo
+github_repos:
+  - arin-deloatch/docta
+  - arin-deloatch/Cerberus-DPL
+  - arin-deloatch/rhel-lightspeed-evaluation
