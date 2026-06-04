@@ -1,0 +1,52 @@
+language: en-US
+tone_instructions: "Be concise, technical, and actionable. Focus on security, type safety, and maintainability."
+
+reviews:
+  profile: assertive
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+    ignore_title_keywords:
+      - WIP
+      - DO NOT REVIEW
+
+  tools:
+    shellcheck:
+      enabled: true
+    yamllint:
+      enabled: true
+    ruff:
+      enabled: true
+    markdownlint:
+      enabled: true
+
+  path_filters:
+    - "!uv.lock"
+    - "!**/*.pyc"
+    - "!**/__pycache__/**"
+
+  path_instructions:
+    - path: "src/**.py"
+      instructions: |
+        - Enforce type hints on all public functions
+        - Flag missing error handling
+        - Check for security issues (S* ruff rules)
+        - Validate Pydantic models are used correctly
+    - path: "tests/**.py"
+      instructions: |
+        - Ensure tests are deterministic
+        - Check for proper mocking
+        - Validate assertion quality
+    - path: "config/**.yaml"
+      instructions: |
+        - Validate YAML syntax
+        - Check for consistent indentation (2 spaces)
+        - Flag hardcoded secrets
+
+chat:
+  auto_reply: true
